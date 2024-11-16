@@ -1,16 +1,16 @@
 package com.example.telaaa;
 
-import obj.Usuario;
-import interfaces.Cadastro;
+import INTERFACES.Cadastro;
+import OBJ.Usuario;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 
-
-public class cadastroControle implements Cadastro {
+ public class cadastroControle implements Cadastro {
      ArrayList<Usuario> listCliente = new ArrayList<>();
 
 
@@ -28,11 +28,10 @@ public class cadastroControle implements Cadastro {
      private PasswordField confirmaSenha;
 
 
-
-
      @Override
-     public void Cadastro() { btCadastro.setDisable(true);
+     public void Cadastro() {
 
+        btCadastro.setDisable(true);
          String nome = nomeUsuario.getText();
          String email = emailUsuario.getText();
          String senha = senhaUsuario.getText();
@@ -54,7 +53,6 @@ public class cadastroControle implements Cadastro {
 
      private void updateButtonState(TextField nomeUsuario, TextField emailUsuario, PasswordField senhaUsuario, PasswordField confirmaSenha) {
          btCadastro.setDisable(nomeUsuario.getText().isEmpty() || emailUsuario.getText().isEmpty() || senhaUsuario.getText().isEmpty() || confirmaSenha.getText().isEmpty());
-
      }
  }
 
