@@ -1,21 +1,24 @@
 package com.example.telaaa;
 
-import INTERFACES.Cadastro;
-import INTERFACES.trocaTela;
-import OBJ.Adiministrador;
-import OBJ.Usuario;
+
+import interfaces.Cadastro;
+import interfaces.trocaTela;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import obj.Adiministrador;
 
 import java.io.IOException;
 import java.util.ArrayList;
 
+
+
+
 public class cadastroADMcontroller implements Cadastro, trocaTela {
 
 
-        ArrayList<Usuario> listADM = new ArrayList<>();
+        ArrayList<obj.Adiministrador> listADM = new ArrayList<>();
 
 
         @FXML
@@ -70,7 +73,7 @@ public class cadastroADMcontroller implements Cadastro, trocaTela {
     public void outraTela() {
         btVoltar.setOnAction(actionEvent -> {
             try{
-                HelloApplication.HelloApplication.getInstance().Tela1();
+                HelloApplication.getInstance().Tela1();
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }

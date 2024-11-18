@@ -1,12 +1,13 @@
 package com.example.telaaa;
 
-import INTERFACES.Cadastro;
-import OBJ.Usuario;
+
+import interfaces.Cadastro;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import org.jetbrains.annotations.NotNull;
+import obj.Usuario;
+
 
 import java.util.ArrayList;
 
