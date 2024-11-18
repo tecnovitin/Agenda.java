@@ -12,7 +12,7 @@ import obj.Usuario;
 import java.util.ArrayList;
 
  public class cadastroControle implements Cadastro {
-     ArrayList<Usuario> listCliente = new ArrayList<>();
+    public ArrayList<Usuario> listCliente = new ArrayList<>();
 
 
      @FXML
