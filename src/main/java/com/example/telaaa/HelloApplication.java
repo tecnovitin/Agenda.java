@@ -18,13 +18,17 @@ public class HelloApplication extends Application {
         public  void start( Stage stage0) throws IOException {
             instance = this;
             this.stage0 = stage0;
-            Tela1();
+            Tela0();
             stage0.show();
         }
         public static com.example.telaaa.HelloApplication getInstance(){
             return instance;
         }
 
+        public void Tela0() throws IOException {
+            Parent tela0 = FXMLLoader.load(getClass().getResource("login.fxml"));
+            stage0.setScene( new Scene(tela0));
+        }
 
         public void Tela1() throws IOException{
                 Parent tela1 = FXMLLoader.load(getClass().getResource("cadastro.fxml"));

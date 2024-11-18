@@ -73,7 +73,7 @@ public class cadastroADMcontroller implements Cadastro, trocaTela {
     public void outraTela() {
         btVoltar.setOnAction(actionEvent -> {
             try{
-                HelloApplication.getInstance().Tela1();
+                HelloApplication.getInstance().Tela0();
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
