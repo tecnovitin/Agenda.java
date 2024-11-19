@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="522.0" prefWidth="883.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.telaaa.Logincontroller">
+   <children>
+      <TitledPane animated="false" layoutX="262.0" layoutY="53.0" prefHeight="388.0" prefWidth="359.0" text="                                         ENTRAR">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="348.0" prefWidth="295.0">
+               <children>
+                  <TextField fx:id="UsuarioLogin" layoutX="60.0" layoutY="63.0" onAction="#Logar" prefHeight="25.0" prefWidth="239.0" />
+                  <Button fx:id="btLogin" layoutX="62.0" layoutY="162.0" mnemonicParsing="false" onAction="#Logar" prefHeight="25.0" prefWidth="239.0" text="Login" />
+                  <Text layoutX="60.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Usuario" />
+                  <Text layoutX="60.0" layoutY="306.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Não tem uma conta?" />
+                  <Text layoutX="198.0" layoutY="122.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Esqueceu a Senha?" />
+                  <PasswordField fx:id="SenhaLogin" layoutX="61.0" layoutY="128.0" onAction="#Logar" prefHeight="25.0" prefWidth="237.0" promptText="1234" />
+                  <Text layoutX="62.0" layoutY="122.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Senha" />
+                  <Hyperlink fx:id="cadas" layoutX="172.0" layoutY="290.0" onAction="#outraTela" text="Cadastre-se" />
+               </children>
+            </AnchorPane>
+        </content>
+      </TitledPane>
+   </children>
+</AnchorPane>
