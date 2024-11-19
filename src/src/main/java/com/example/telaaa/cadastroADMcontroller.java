@@ -18,7 +18,7 @@ import java.util.ArrayList;
 public class cadastroADMcontroller implements Cadastro, trocaTela {
 
 
-        ArrayList<Adiministrador> listADM = new ArrayList<Adiministrador>();
+        ArrayList<obj.Adiministrador> listADM = new ArrayList<>();
 
 
         @FXML

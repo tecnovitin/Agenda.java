@@ -46,15 +46,9 @@ public class HelloApplication extends Application {
 
         }
 
-        public void Tela3() throws Exception {
-        Parent tela3 = FXMLLoader.load(getClass().getResource("Calendario.fxml"));
-        stage0.setScene(new Scene(tela3));
-
-        }
-
 
         public static void main(String[] args) {
             launch();
         }
 
-     }
+    }

@@ -2,7 +2,6 @@ package com.example.telaaa;
 
 
 import interfaces.Cadastro;
-import interfaces.ListaCadastro;
 import interfaces.trocaTela;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -12,13 +11,11 @@ import javafx.scene.control.TextField;
 import obj.Usuario;
 
 
+import java.io.IOException;
 import java.util.ArrayList;
 
- public class cadastroControle implements Cadastro, trocaTela{
-
-     public ArrayList<Usuario> listCliente = new ArrayList<>();
-
-
+ public class cadastroControle implements Cadastro, trocaTela {
+    public ArrayList<Usuario> listCliente = new ArrayList<>();
 
 
      @FXML
@@ -66,20 +63,17 @@ import java.util.ArrayList;
      }
   @Override
   public void outraTela() {
-        hyper.setOnAction(actionEvent -> {
+    hyper.setOnAction(actionEvent -> {
              try {
-                 HelloApplication.getInstance().Tela2();
+     HelloApplication.getInstance().Tela2();
 
-                 } catch (Exception e) {
+    } catch (Exception e) {
                  throw new RuntimeException(e);
              }
     });
 
-     }
+  }
  }
-
-
-
 
 
 
