@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
@@ -7,21 +11,23 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="453.0" prefWidth="641.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.telaaa.cadastroControle">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="453.0" prefWidth="584.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.telaaa.cadastroControle">
    <children>
-      <Label layoutX="267.0" layoutY="63.0" prefHeight="17.0" prefWidth="107.0" text="Nome Completo:" />
-      <TextField fx:id="nomeUsuario" layoutX="142.0" layoutY="93.0" onAction="#Cadastro" prefHeight="25.0" prefWidth="321.0" promptText="Nome" />
-      <Button fx:id="btCadastro" layoutX="224.0" layoutY="349.0" mnemonicParsing="false" onAction="#Cadastro" prefHeight="17.0" prefWidth="195.0" text="Cadastrar" />
-      <Label alignment="CENTER" layoutX="256.0" layoutY="9.0" prefHeight="32.0" prefWidth="129.0" text="CADASTRO" textAlignment="JUSTIFY">
+      <Label layoutX="128.0" layoutY="70.0" prefHeight="17.0" prefWidth="107.0" text="Nome Completo:" />
+      <Button fx:id="btCadastro" layoutX="195.0" layoutY="342.0" mnemonicParsing="false" onAction="#Cadastro" prefHeight="17.0" prefWidth="195.0" text="Cadastrar" />
+      <Label alignment="CENTER" layoutX="228.0" layoutY="14.0" prefHeight="32.0" prefWidth="129.0" text="CADASTRO" textAlignment="JUSTIFY">
          <font>
             <Font size="22.0" />
          </font>
       </Label>
-      <Label layoutX="133.0" layoutY="218.0" prefHeight="17.0" prefWidth="48.0" text="Senha:" textAlignment="JUSTIFY" />
-      <Label layoutX="285.0" layoutY="135.0" text="E-mail:" />
-      <TextField fx:id="emailUsuario" layoutX="149.0" layoutY="172.0" onAction="#Cadastro" prefHeight="25.0" prefWidth="345.0" promptText="exemplo.deemail@gmail.com" />
-      <Label layoutX="395.0" layoutY="210.0" text="Confirmar Senha:" />
-      <PasswordField fx:id="senhaUsuario" layoutX="89.0" layoutY="235.0" onAction="#Cadastro" promptText="1234" />
-      <PasswordField fx:id="confirmaSenha" layoutX="366.0" layoutY="235.0" onAction="#Cadastro" promptText="1234" />
+      <Label layoutX="129.0" layoutY="187.0" prefHeight="17.0" prefWidth="48.0" text="Senha:" textAlignment="JUSTIFY" />
+      <Label layoutX="132.0" layoutY="129.0" text="E-mail:" />
+      <TextField fx:id="emailUsuario" layoutX="125.0" layoutY="151.0" onAction="#Cadastro" prefHeight="25.0" prefWidth="334.0" promptText="exemplo.deemail@gmail.com" />
+      <Label layoutX="299.0" layoutY="187.0" text="Confirmar Senha:" />
+      <PasswordField fx:id="senhaUsuario" layoutX="126.0" layoutY="207.0" onAction="#Cadastro" promptText="1234" />
+      <PasswordField fx:id="confirmaSenha" layoutX="296.0" layoutY="207.0" onAction="#Cadastro" prefHeight="25.0" prefWidth="155.0" promptText="1234" />
+      <Hyperlink fx:id="hyper" layoutX="311.0" layoutY="377.0" onAction="#outraTela" text="Cadastrar aqui" />
+      <Label layoutX="195.0" layoutY="379.0" text="Cadastrar como Adm?" />
+      <TextField fx:id="nomeUsuario" layoutX="125.0" layoutY="94.0" onAction="#Cadastro" prefHeight="25.0" prefWidth="334.0" promptText="Nome" />
    </children>
 </Pane>
