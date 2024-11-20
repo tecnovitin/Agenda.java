@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
@@ -11,26 +7,26 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="479.0" prefWidth="655.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.telaaa.cadastroADMcontroller">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="479.0" prefWidth="655.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.telaaa.cadastroADMcontroller">
     <children>
-        <Label layoutX="140.0" layoutY="97.0" prefHeight="17.0" prefWidth="107.0" text="Nome Completo:" />
-        <TextField fx:id="nomeUsuario" layoutX="99.0" layoutY="127.0" onAction="#Cadastro" prefHeight="25.0" prefWidth="321.0" promptText="Nome" />
-        <Button fx:id="btCadastro" layoutX="420.0" layoutY="390.0" mnemonicParsing="false" onAction="#Cadastro" prefHeight="25.0" prefWidth="128.0" text="Cadastrar" />
-        <Label alignment="CENTER" layoutX="109.0" layoutY="47.0" prefHeight="32.0" prefWidth="409.0" text="Inserir usuarios administradores" textAlignment="JUSTIFY">
+        <Label layoutX="147.0" layoutY="97.0" prefHeight="17.0" prefWidth="107.0" text="Nome Completo:" />
+        <TextField fx:id="nomeUsuario" layoutX="146.0" layoutY="126.0" onAction="#Cadastro" prefHeight="25.0" prefWidth="364.0" promptText="Nome" />
+        <Button fx:id="btCadastro" layoutX="382.0" layoutY="390.0" mnemonicParsing="false" onAction="#Cadastro" prefHeight="25.0" prefWidth="128.0" text="Cadastrar" />
+        <Label alignment="CENTER" layoutX="123.0" layoutY="42.0" prefHeight="32.0" prefWidth="409.0" text="Cadastrar Usuario Administrador" textAlignment="JUSTIFY">
             <font>
                 <Font size="22.0" />
             </font>
         </Label>
-        <Label layoutX="105.0" layoutY="292.0" prefHeight="17.0" prefWidth="137.0" text="Senha " textAlignment="JUSTIFY" />
-        <Label layoutX="394.0" layoutY="159.0" text="Codigo de  Administrador" />
-        <PasswordField fx:id="senhaUsuario" layoutX="99.0" layoutY="328.0" onAction="#Cadastro" promptText="1234" />
-        <PasswordField fx:id="codADM" layoutX="384.0" layoutY="184.0" onAction="#Cadastro" promptText="1234" />
-      <TextField fx:id="CPFUsuario" layoutX="100.0" layoutY="184.0" onAction="#Cadastro" prefHeight="25.0" prefWidth="188.0" promptText="CPF" />
-      <Label layoutX="109.0" layoutY="167.0" prefHeight="17.0" prefWidth="107.0" text="CPF" />
-      <Button fx:id="btVoltar" layoutX="89.0" layoutY="390.0" mnemonicParsing="false" onAction="#outraTela" prefHeight="25.0" prefWidth="128.0" text="Voltar " />
-      <TextField fx:id="emailADM" layoutX="99.0" layoutY="256.0" onAction="#Cadastro" prefHeight="25.0" prefWidth="321.0" promptText="Email" />
-      <Label layoutX="99.0" layoutY="231.0" prefHeight="17.0" prefWidth="107.0" text="Email" />
-      <PasswordField fx:id="confirmaSenha" layoutX="335.0" layoutY="328.0" onAction="#Cadastro" promptText="1234" />
-      <Label layoutX="345.0" layoutY="301.0" text="Confirme sua senha" />
+        <Label layoutX="148.0" layoutY="302.0" prefHeight="17.0" prefWidth="137.0" text="Senha " textAlignment="JUSTIFY" />
+        <Label layoutX="360.0" layoutY="159.0" text="Codigo de  Administrador" />
+        <PasswordField fx:id="senhaUsuario" layoutX="147.0" layoutY="328.0" onAction="#Cadastro" promptText="1234" />
+        <PasswordField fx:id="codADM" layoutX="361.0" layoutY="184.0" onAction="#Cadastro" prefHeight="25.0" prefWidth="149.0" promptText="1234" />
+      <TextField fx:id="CPFUsuario" layoutX="146.0" layoutY="184.0" onAction="#Cadastro" prefHeight="25.0" prefWidth="188.0" promptText="CPF" />
+      <Label layoutX="147.0" layoutY="159.0" prefHeight="17.0" prefWidth="107.0" text="CPF" />
+      <Button fx:id="btVoltar" layoutX="147.0" layoutY="390.0" mnemonicParsing="false" onAction="#outraTela" prefHeight="25.0" prefWidth="128.0" text="Voltar " />
+      <TextField fx:id="emailADM" layoutX="146.0" layoutY="248.0" onAction="#Cadastro" prefHeight="25.0" prefWidth="364.0" promptText="Email" />
+      <Label layoutX="147.0" layoutY="223.0" prefHeight="17.0" prefWidth="107.0" text="Email" />
+      <PasswordField fx:id="confirmaSenha" layoutX="361.0" layoutY="328.0" onAction="#Cadastro" promptText="1234" />
+      <Label layoutX="361.0" layoutY="302.0" text="Confirme sua senha" />
     </children>
 </Pane>
