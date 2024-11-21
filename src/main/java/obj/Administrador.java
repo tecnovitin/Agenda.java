@@ -2,10 +2,10 @@ package obj;
 
 
 
-public class Adiministrador extends Usuario{
+public class Administrador extends Usuario{
     private float Codigo;
     private String CPF;
-   public Adiministrador(String nome, String email, String senha, String confrimaSenha, float Codigo , String CPF) {
+   public Administrador(String nome, String email, String senha, String confrimaSenha, float Codigo , String CPF) {
         super(nome, email, senha,confrimaSenha);
         this.Codigo = Codigo;
         this.CPF = CPF;

@@ -1,63 +1,77 @@
 package com.example.telaaa;
 
-import interfaces.ListaCadastro;
 import interfaces.Login;
+import interfaces.trocaDeDados;
 import interfaces.trocaTela;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+
 import obj.Usuario;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 
-public class Logincontroller implements trocaTela, Login, ListaCadastro {
+
+public class Logincontroller implements trocaTela, Login {
 
 
-    @Override
-    public void setLista(ArrayList<Usuario> lista) {
-        this.listCliente = lista;
-    }
 
-    private ArrayList<Usuario> listCliente;
+
+
     @FXML
     private TextField UsuarioLogin;
     @FXML
-    private PasswordField SenhaUsuario;
+    private PasswordField SenhaLogin;
     @FXML
     private Button btLogin;
     @FXML
-    private Button btClique;
-    @FXML
     private Hyperlink cadas;
 
+
+
+
+
+
+
     @Override
-    public void Logar() {
-   String NomeUsuario = UsuarioLogin.getText();
-   String Senha = SenhaUsuario.getText();
-
-
-   for (Usuario usuario : listCliente) {
-       if(NomeUsuario.contains((CharSequence) listCliente) && Senha.contains((CharSequence) listCliente)){
-           btLogin.setOnAction(ActionEvent -> {
-                   try {
-                       HelloApplication.getInstance().Tela3();
-                   } catch (Exception e) {
-                       throw new RuntimeException(e);
-                   }
-
-
-           });
-       }
-   }
+    public void Logar(){
 
 
 
+        btLogin.setOnAction(ActionEvent -> {
+            String NomeUsuario = UsuarioLogin.getText();
+            String Senha = SenhaLogin.getText();
+            Boolean Encontrado = false;
+
+            var usuarios = HelloApplication.getInstance().getUsuarios();
+
+            if (usuarios.isEmpty()) {
+                System.out.println("Nenhum usuário cadastrado.");
+                return;
+            }
+                for (Usuario usuario : usuarios ) {
+                    if (NomeUsuario.equals(usuario.getNome()) && Senha.equals(usuario.getSenha())) {
+                        Encontrado = true;
+                        System.out.println("Encontrado");
+
+                        try {
+                            HelloApplication.getInstance().Tela3();
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                            System.out.println("Erro ao Login");
+                        }
+                        break;
+                    }
+                }
+        if (!Encontrado) {
+        System.out.println("Não encontrado");
+        }
 
 
+        });
     }
 
     @Override
@@ -75,3 +89,5 @@ public class Logincontroller implements trocaTela, Login, ListaCadastro {
 
 
 }
+
+

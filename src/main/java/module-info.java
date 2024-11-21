@@ -10,7 +10,7 @@ module com.example.telaaa {
     requires org.kordamp.bootstrapfx.core;
     requires eu.hansolo.tilesfx;
     requires com.almasb.fxgl.all;
-    requires java.desktop;
+    requires jdk.unsupported.desktop;
 
     opens com.example.telaaa to javafx.fxml;
     exports com.example.telaaa;

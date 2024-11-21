@@ -7,72 +7,84 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import obj.Adiministrador;
+import obj.Administrador;
 
 import java.io.IOException;
-import java.util.ArrayList;
+
+
+public class cadastroADMcontroller implements Cadastro, trocaTela{
+
+
+    @FXML
+    private Button btCadastro;
+    @FXML
+    private Button btVoltar;
+    @FXML
+    private TextField nomeUsuario;
+    @FXML
+    private TextField emailADM;
+    @FXML
+    private TextField CPFUsuario;
+    @FXML
+    private PasswordField confirmaSenha;
+    @FXML
+    private PasswordField senhaUsuario;
+    @FXML
+    private PasswordField codADM;
+
+
+    @Override
+    public void Cadastro() {
+        btCadastro.setDisable(true);
+        nomeUsuario.textProperty().addListener((obs, oldText, newText) -> updateButtonState(nomeUsuario, senhaUsuario, emailADM, confirmaSenha, codADM, CPFUsuario));
+        CPFUsuario.textProperty().addListener((obs, oldText, newText) -> updateButtonState(nomeUsuario, senhaUsuario, emailADM, confirmaSenha, codADM, CPFUsuario));
+        codADM.textProperty().addListener((obs, oldText, newText) -> updateButtonState(nomeUsuario, senhaUsuario, emailADM, confirmaSenha, codADM, CPFUsuario));
+        senhaUsuario.textProperty().addListener((obs, oldText, newText) -> updateButtonState(nomeUsuario, senhaUsuario, emailADM, confirmaSenha, codADM, CPFUsuario));
+        emailADM.textProperty().addListener((obs, oldText, newText) -> updateButtonState(nomeUsuario, senhaUsuario, emailADM, confirmaSenha, codADM, CPFUsuario));
+        confirmaSenha.textProperty().addListener((obs, oldText, newText) -> updateButtonState(nomeUsuario, senhaUsuario, emailADM, confirmaSenha, codADM, CPFUsuario));
 
 
 
+        btCadastro.setOnAction(actionEvent -> {
+            try {
 
-public class cadastroADMcontroller implements Cadastro, trocaTela {
+                String nome = nomeUsuario.getText();
+                String cpf = CPFUsuario.getText();
+                String senha = senhaUsuario.getText();
+                float cod = Float.parseFloat(codADM.getText());
+                String email = emailADM.getText();
+                String Csenha = confirmaSenha.getText();
+                if (!senha.equals(Csenha)) {
+                    System.out.println("senha não coensidem");
+                    return;
+                }
+                Administrador adm = new Administrador(nome, email, senha, Csenha, cod, cpf);
+                var usuarioADM = HelloApplication.getInstance().adiministradores;
 
+                usuarioADM.add(adm);
+                try {
+                    HelloApplication.getInstance().Tela3();
 
-        ArrayList<Adiministrador> listADM = new ArrayList<Adiministrador>();
+                } catch (Exception e) {
+                    throw new RuntimeException(e);
+                }
+                System.out.println("Cliente adicionado com sucesso!");
+            } finally {
 
+            }
+        });
+    }
 
-        @FXML
-        private Button btCadastro;
-        @FXML
-        private Button btVoltar;
-        @FXML
-        private TextField nomeUsuario;
-        @FXML
-        private TextField emailADM;
-        @FXML
-        private TextField CPFUsuario;
-        @FXML
-        private PasswordField confirmaSenha;
-        @FXML
-        private PasswordField senhaUsuario;
-        @FXML
-        private PasswordField codADM;
+    private void updateButtonState(TextField nomeUsuario, PasswordField senhaUsuario, TextField emailADM, PasswordField confirmaSenha, TextField codADM, TextField CPFUsuario) {
+        btCadastro.setDisable(nomeUsuario.getText().isEmpty() || emailADM.getText().isEmpty() || senhaUsuario.getText().isEmpty() || confirmaSenha.getText().isEmpty() || CPFUsuario.getText().isEmpty() || codADM.getText().isEmpty());
+    }
 
-
-        @Override
-        public void Cadastro() {
-
-            btCadastro.setDisable(true);
-            String nome = nomeUsuario.getText();
-            String cpf = CPFUsuario.getText();
-            String senha = senhaUsuario.getText();
-            float cod = Float.parseFloat(codADM.getText());
-            String email = emailADM.getText();
-            String Csenha = confirmaSenha.getText();
-
-
-            nomeUsuario.textProperty().addListener((obs, oldText, newText) -> updateButtonState(nomeUsuario, CPFUsuario, senhaUsuario, codADM, emailADM, confirmaSenha));
-            CPFUsuario.textProperty().addListener((obs, oldText, newText) -> updateButtonState(nomeUsuario, CPFUsuario, senhaUsuario, codADM,emailADM,confirmaSenha));
-            codADM.textProperty().addListener((obs, oldText, newText) -> updateButtonState(nomeUsuario, CPFUsuario, senhaUsuario, codADM, emailADM,confirmaSenha));
-            senhaUsuario.textProperty().addListener((obs, oldText, newText) -> updateButtonState(nomeUsuario, CPFUsuario, senhaUsuario, codADM,emailADM,confirmaSenha));
-            emailADM.textProperty().addListener((obs, oldText, newText) -> updateButtonState(nomeUsuario, CPFUsuario, senhaUsuario, codADM,emailADM,confirmaSenha));
-            confirmaSenha.textProperty().addListener((obs, oldText, newText) -> updateButtonState(nomeUsuario, CPFUsuario, senhaUsuario, codADM,emailADM,confirmaSenha));
-            Adiministrador adm = new Adiministrador(nome, email, senha,Csenha, cod, cpf);
-
-
-            btCadastro.setOnAction(actionEvent ->
-                    listADM.add(adm));
-        }
-
-        private void updateButtonState(TextField nomeUsuario, TextField emailUsuario, PasswordField senhaUsuario, TextField emailADM, TextField adm, PasswordField confirmaSenha) {
-            btCadastro.setDisable(nomeUsuario.getText().isEmpty() || emailUsuario.getText().isEmpty() || senhaUsuario.getText().isEmpty() || confirmaSenha.getText().isEmpty());
-        }
 
 
     @Override
     public void outraTela() {
         btVoltar.setOnAction(actionEvent -> {
-            try{
+            try {
                 HelloApplication.getInstance().Tela0();
             } catch (IOException e) {
                 throw new RuntimeException(e);
@@ -80,6 +92,8 @@ public class cadastroADMcontroller implements Cadastro, trocaTela {
         });
     }
 }
+
+
 
 
 

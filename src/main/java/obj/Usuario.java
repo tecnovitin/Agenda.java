@@ -13,6 +13,10 @@ public class Usuario {
       this.confirmaSenha = confirmaSenha;
   }
 
+    public String getNome() {
+        return nome;
+    }
+
     public String getSenha() {
         return senha;
   }

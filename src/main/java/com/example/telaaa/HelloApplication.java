@@ -4,14 +4,27 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.SplitMenuButton;
 import javafx.stage.Stage;
+import obj.Administrador;
+import obj.Calendario;
+import obj.Usuario;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 
 public class HelloApplication extends Application {
 
-        private  Stage stage0;
+    ArrayList<Calendario> agendamentos = new ArrayList<>();
+    ArrayList<Usuario> usuarios = new ArrayList<>();
+    ArrayList<Administrador> adiministradores = new ArrayList<>();
+
+    private CalendarioController calendarioController;
+    private SplitMenuButton splitMenuButton;
+    private cadastroControle cadastroControle;
+
+    private  Stage stage0;
         private static com.example.telaaa.HelloApplication instance;
 
         @Override
@@ -21,9 +34,15 @@ public class HelloApplication extends Application {
             Tela0();
             stage0.show();
         }
+
+
         public static com.example.telaaa.HelloApplication getInstance(){
             return instance;
         }
+
+        public ArrayList<Calendario> getAgendamentos() {return agendamentos;}
+        public  ArrayList<Usuario> getUsuarios(){return usuarios;}
+        public  ArrayList<Administrador> getAdiministradores(){return adiministradores;}
 
         public void Tela0() throws IOException {
             Parent tela0 = FXMLLoader.load(getClass().getResource("login.fxml"));
@@ -49,6 +68,7 @@ public class HelloApplication extends Application {
         public void Tela3() throws Exception {
         Parent tela3 = FXMLLoader.load(getClass().getResource("Calendario.fxml"));
         stage0.setScene(new Scene(tela3));
+
 
         }
 
