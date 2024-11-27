@@ -1,34 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
+
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.CheckBox?>
-<?import javafx.scene.control.ComboBox?>
-<?import javafx.scene.control.DatePicker?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ListView?>
-<?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.control.Separator?>
-<?import javafx.scene.control.SplitMenuButton?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
+
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="479.0" prefWidth="655.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.telaaa.CalendarioController">
     <children>
         <Button fx:id="btLog" layoutX="455.0" layoutY="418.0" mnemonicParsing="false" onAction="#outraTela" text="Cancelar" textFill="#f20000" />
         <Button fx:id="btAgendar" layoutX="526.0" layoutY="418.0" mnemonicParsing="false" onAction="#config" text="Agendar" />
         <DatePicker fx:id="calendario" layoutX="182.0" layoutY="248.0" onAction="#config" prefHeight="25.0" prefWidth="112.0" promptText="00/00/0000" />
-        <SplitMenuButton fx:id="admLista" layoutX="67.0" layoutY="120.0" mnemonicParsing="false" onAction="#config" prefHeight="25.0" prefWidth="228.0" text="Profissional">
-            <items>
-                <MenuItem mnemonicParsing="false" text="Action 1" />
-                <MenuItem mnemonicParsing="false" text="Action 2" />
-            </items>
-        </SplitMenuButton>
-        <ComboBox fx:id="hora" layoutX="67.0" layoutY="248.0" onAction="#data" prefHeight="25.0" prefWidth="103.0" promptText="9:00 - 18:00" />
+        <SplitMenuButton fx:id="admLista" layoutX="67.0" layoutY="120.0" mnemonicParsing="false" onAction="#config" prefHeight="25.0" prefWidth="228.0" text="Profissional" />
         <ListView layoutX="386.0" layoutY="120.0" prefHeight="153.0" prefWidth="200.0" />
         <CheckBox fx:id="cb1" layoutX="417.0" layoutY="164.0" mnemonicParsing="false" onAction="#config" text="Cabelo" />
         <CheckBox fx:id="cb2" layoutX="417.0" layoutY="190.0" mnemonicParsing="false" onAction="#config" text="Barba" />
@@ -48,7 +31,7 @@
                 <Font size="13.0" />
             </font>
         </Label>
-        <Label layoutX="68.0" layoutY="224.0" text="Hora">
+        <Label layoutX="53.0" layoutY="224.0" text="Hora">
             <font>
                 <Font size="13.0" />
             </font>
@@ -56,5 +39,6 @@
         <Separator layoutY="45.0" prefHeight="65.0" prefWidth="655.0" />
         <Label layoutX="67.0" layoutY="318.0" text="Anotações:" />
         <TextField fx:id="usuarioAnotacao" layoutX="67.0" layoutY="343.0" onAction="#config" prefHeight="100.0" prefWidth="228.0" promptText="Obs..." />
+      <TextField fx:id="hora" layoutX="41.0" layoutY="248.0" onAction="#config" prefHeight="25.0" prefWidth="112.0" promptText="00:00" />
     </children>
 </AnchorPane>

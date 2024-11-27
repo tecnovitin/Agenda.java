@@ -71,7 +71,10 @@ public class HelloApplication extends Application {
 
 
         }
-
+        public void Tela4() throws Exception{
+            Parent tela4 = FXMLLoader.load(getClass().getResource("LoginADM.fxml"));
+            stage0.setScene(new Scene(tela4));
+        }
 
         public static void main(String[] args) {
             launch();

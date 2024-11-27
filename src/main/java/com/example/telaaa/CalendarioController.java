@@ -1,14 +1,11 @@
 package com.example.telaaa;
 
-import interfaces.Buttom;
 import interfaces.Menu;
 import interfaces.trocaTela;
-import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import obj.Administrador;
 import obj.Calendario;
-import org.controlsfx.control.action.Action;
 
 import java.io.IOException;
 import java.time.LocalDate;
@@ -22,7 +19,7 @@ public class CalendarioController implements trocaTela, Menu {
     @FXML
     private SplitMenuButton admLista;
     @FXML
-    private ComboBox<String> hora;
+    private TextField hora;
     @FXML
     private DatePicker calendario;
     @FXML
@@ -34,14 +31,23 @@ public class CalendarioController implements trocaTela, Menu {
     @FXML
     private CheckBox cb3;
 
+    @FXML
+    public void initialize() {
 
-    @Override
-    public void config() {
         btAgendar.setDisable(true);
+        hora.textProperty().addListener((obs, oldValue, newValue) -> updateButtonState());
+        usuarioAnotacao.textProperty().addListener((obs, oldText, newText) -> updateButtonState());
 
         calendario.setValue(LocalDate.now());
-        data();
-        validateFields();
+
+
+    }
+    @Override
+    public void config() {
+
+
+
+
 
         var adms = HelloApplication.getInstance().getAdiministradores();
         admLista.getItems().clear();
@@ -55,19 +61,15 @@ public class CalendarioController implements trocaTela, Menu {
             }
         }
 
-        hora.valueProperty().addListener((obs, oldValue, newValue) -> validateFields());
-        usuarioAnotacao.textProperty().addListener((obs, oldText, newText) -> validateFields());
-        cb1.selectedProperty().addListener((obs, oldValue, newValue) -> validateFields());
-        cb2.selectedProperty().addListener((obs, oldValue, newValue) -> validateFields());
-        cb3.selectedProperty().addListener((obs, oldValue, newValue) -> validateFields());
+
         btAgendar.setOnAction(event -> {
 
-            String profissional = admLista.getText().equals("Selecione um profissional")? null : admLista.getText();
+            String profissional = admLista.getText();
             boolean opcao1 = cb1.isSelected();
             boolean opcao2 = cb2.isSelected();
             boolean opcao3 = cb3.isSelected();
             LocalDate data = calendario.getValue();
-            String horaSelecionada = hora.getValue();
+            String horaSelecionada = hora.getText();
             String anotacoes = usuarioAnotacao.getText();
            if (data == null|| horaSelecionada ==null || profissional==null ) {
                System.out.println("coloca tudo");
@@ -81,35 +83,27 @@ public class CalendarioController implements trocaTela, Menu {
         });
         calendario.valueProperty().addListener((obs,oldDate,newDate) -> {
 
-            data();
 
-            validateFields();
+
+
         });
     }
 
-    private void validateFields() {
-        Platform.runLater(()-> {
-            boolean allFieldsValid = calendario.getValue() != null
-                    && hora.getValue() != null
-                    && !admLista.getText().equals("Selecione um profissional")
-                    && !usuarioAnotacao.getText().trim().isEmpty();
-            btAgendar.setDisable(!allFieldsValid);
-        });
-    }
-    @Override
-    public void data() {
 
-        hora.getItems().clear();
-        for (int i = 8; i <= 18; i++) {
-            String horario = String.format("%02d:00", i);
-            hora.getItems().add(horario);
+        private void updateButtonState() {
+
+            btAgendar.setDisable(
+                    admLista.getText().isEmpty() ||
+                            hora.getText().isEmpty()
+            );
         }
-        System.out.println("Horários preenchidos para a data: " + hora.getItems());
 
 
 
 
-}
+
+
+
 
     @Override
     public void outraTela() {

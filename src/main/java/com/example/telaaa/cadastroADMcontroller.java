@@ -31,10 +31,9 @@ public class cadastroADMcontroller implements Cadastro, trocaTela{
     private PasswordField senhaUsuario;
     @FXML
     private PasswordField codADM;
+    @FXML
+    public void initialize() {
 
-
-    @Override
-    public void Cadastro() {
         btCadastro.setDisable(true);
         nomeUsuario.textProperty().addListener((obs, oldText, newText) -> updateButtonState(nomeUsuario, senhaUsuario, emailADM, confirmaSenha, codADM, CPFUsuario));
         CPFUsuario.textProperty().addListener((obs, oldText, newText) -> updateButtonState(nomeUsuario, senhaUsuario, emailADM, confirmaSenha, codADM, CPFUsuario));
@@ -42,6 +41,15 @@ public class cadastroADMcontroller implements Cadastro, trocaTela{
         senhaUsuario.textProperty().addListener((obs, oldText, newText) -> updateButtonState(nomeUsuario, senhaUsuario, emailADM, confirmaSenha, codADM, CPFUsuario));
         emailADM.textProperty().addListener((obs, oldText, newText) -> updateButtonState(nomeUsuario, senhaUsuario, emailADM, confirmaSenha, codADM, CPFUsuario));
         confirmaSenha.textProperty().addListener((obs, oldText, newText) -> updateButtonState(nomeUsuario, senhaUsuario, emailADM, confirmaSenha, codADM, CPFUsuario));
+
+
+    }
+    private void updateButtonState(TextField nomeUsuario, PasswordField senhaUsuario, TextField emailADM, PasswordField confirmaSenha, TextField codADM, TextField CPFUsuario) {
+        btCadastro.setDisable(nomeUsuario.getText().isEmpty() || emailADM.getText().isEmpty() || senhaUsuario.getText().isEmpty() || confirmaSenha.getText().isEmpty() || CPFUsuario.getText().isEmpty() || codADM.getText().isEmpty());
+    }
+    @Override
+    public void Cadastro() {
+        btCadastro.setDisable(true);
 
 
 
@@ -75,9 +83,7 @@ public class cadastroADMcontroller implements Cadastro, trocaTela{
         });
     }
 
-    private void updateButtonState(TextField nomeUsuario, PasswordField senhaUsuario, TextField emailADM, PasswordField confirmaSenha, TextField codADM, TextField CPFUsuario) {
-        btCadastro.setDisable(nomeUsuario.getText().isEmpty() || emailADM.getText().isEmpty() || senhaUsuario.getText().isEmpty() || confirmaSenha.getText().isEmpty() || CPFUsuario.getText().isEmpty() || codADM.getText().isEmpty());
-    }
+
 
 
 
