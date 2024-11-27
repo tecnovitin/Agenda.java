@@ -8,6 +8,7 @@ import javafx.scene.control.Hyperlink;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import obj.Usuario;
+import javafx.scene.control.Alert;
 
 public class cadastroControle implements Cadastro, trocaTela {
 
@@ -45,7 +46,8 @@ public class cadastroControle implements Cadastro, trocaTela {
             String Csenha = confirmaSenha.getText();
 
             if (!senha.equals(Csenha)) {
-                System.out.println("A SENHA TEM QUE SER A MESMA");
+                showAlert("Erro de Cadastro", "As senhas não coincidem.");
+                senhaUsuario.requestFocus();
                 return;
             }
 
@@ -61,6 +63,14 @@ public class cadastroControle implements Cadastro, trocaTela {
                 throw new RuntimeException(e);
             }
         });
+    }
+
+    private void showAlert(String title, String message) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
     }
 
     private void updateButtonState() {

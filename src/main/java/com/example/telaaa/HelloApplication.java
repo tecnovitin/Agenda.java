@@ -24,6 +24,7 @@ public class HelloApplication extends Application {
     private SplitMenuButton splitMenuButton;
     private cadastroControle cadastroControle;
 
+
     private  Stage stage0;
         private static com.example.telaaa.HelloApplication instance;
 
@@ -34,6 +35,8 @@ public class HelloApplication extends Application {
             Tela0();
             stage0.show();
         }
+
+
 
 
         public static com.example.telaaa.HelloApplication getInstance(){
@@ -71,10 +74,12 @@ public class HelloApplication extends Application {
 
 
         }
+
         public void Tela4() throws Exception{
             Parent tela4 = FXMLLoader.load(getClass().getResource("LoginADM.fxml"));
             stage0.setScene(new Scene(tela4));
         }
+
 
         public static void main(String[] args) {
             launch();

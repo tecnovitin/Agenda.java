@@ -8,6 +8,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import obj.Administrador;
+import javafx.scene.control.Alert;
 
 import java.io.IOException;
 
@@ -49,7 +50,7 @@ public class cadastroADMcontroller implements Cadastro, trocaTela{
     }
     @Override
     public void Cadastro() {
-        btCadastro.setDisable(true);
+
 
 
 
@@ -62,8 +63,10 @@ public class cadastroADMcontroller implements Cadastro, trocaTela{
                 float cod = Float.parseFloat(codADM.getText());
                 String email = emailADM.getText();
                 String Csenha = confirmaSenha.getText();
+
                 if (!senha.equals(Csenha)) {
-                    System.out.println("senha não coensidem");
+                    showAlert("Erro de Cadastro", "As senhas não coincidem.");
+                    senhaUsuario.requestFocus();
                     return;
                 }
                 Administrador adm = new Administrador(nome, email, senha, Csenha, cod, cpf);
@@ -81,6 +84,24 @@ public class cadastroADMcontroller implements Cadastro, trocaTela{
 
             }
         });
+    }
+
+    private void showAlert(String title, String message) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
+    }
+
+    private void limparCampos() {
+        nomeUsuario.clear();
+        CPFUsuario.clear();
+        codADM.clear();
+        senhaUsuario.clear();
+        confirmaSenha.clear();
+        emailADM.clear();
+        nomeUsuario.requestFocus(); // Foco no primeiro campo
     }
 
 

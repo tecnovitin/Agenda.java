@@ -7,6 +7,10 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+
+
 
 import obj.Usuario;
 
@@ -63,14 +67,23 @@ public class Logincontroller implements trocaTela, Login {
             }
             if (!Encontrado) {
                 System.out.println("Não encontrado");
+                showAlert("Erro", "Nome de usuário ou senha incorretos.");
             }
         });
     }
 
     private void updateButtonState() {
-
         btLogin.setDisable(UsuarioLogin.getText().isEmpty() || SenhaLogin.getText().isEmpty());
     }
+
+    private void showAlert(String title, String message) {
+        Alert alert = new Alert(AlertType.ERROR);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
+    }
+
 
     @Override
     public void outraTela() {
