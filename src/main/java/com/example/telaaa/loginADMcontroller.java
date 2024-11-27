@@ -50,7 +50,7 @@ public class loginADMcontroller implements Login, trocaTela {
                     System.out.println("Administrador encontrado");
 
                     try {
-                        HelloApplication.getInstance().Tela3(); // Sucesso no login, redireciona para outra tela
+                        HelloApplication.getInstance().Tela3(); 
                     } catch (Exception e) {
                         e.printStackTrace();
                         System.out.println("Erro ao Login");
@@ -69,7 +69,7 @@ public class loginADMcontroller implements Login, trocaTela {
         btLogin.setDisable(nomeUsuario.getText().isEmpty() || senhaUsuario.getText().isEmpty() || codigoADM.getText().isEmpty());
     }
 
-    // Método para exibir o alerta de erro
+    
     private void showAlert(String title, String message) {
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle(title);
@@ -82,7 +82,7 @@ public class loginADMcontroller implements Login, trocaTela {
     public void outraTela() {
         cadas.setOnAction(actionEvent -> {
             try {
-                HelloApplication.getInstance().Tela4(); // Exemplo: Redireciona para a tela de cadastro de administrador
+                HelloApplication.getInstance().Tela4(); 
             } catch (Exception e) {
                 e.printStackTrace();
             }
