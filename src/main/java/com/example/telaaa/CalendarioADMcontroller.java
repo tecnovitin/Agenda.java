@@ -23,6 +23,7 @@ public class CalendarioADMcontroller implements trocaTela {
     @FXML
     private Button btVoltar;
 
+    @FXML
     private ObservableList<Calendario> calendarioList;
 
 
@@ -31,7 +32,7 @@ public class CalendarioADMcontroller implements trocaTela {
 
         calendarioList = FXCollections.observableList(new ArrayList<Calendario>());
 
-        Lista.setItems( calendarioList);
+        Lista.setItems(calendarioList);
     }
 
     public void outraTela() {

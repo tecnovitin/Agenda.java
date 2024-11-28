@@ -12,25 +12,23 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="LoginADM" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="479.0" prefWidth="655.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.telaaa.Logincontroller">
+<AnchorPane prefHeight="479.0" prefWidth="657.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.telaaa.Logincontroller">
    <children>
-      <TitledPane animated="false" layoutX="148.0" layoutY="46.0" prefHeight="388.0" prefWidth="359.0" text="                                         ENTRAR">
-        <content>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="348.0" prefWidth="295.0">
-               <children>
-                  <TextField fx:id="UsuarioLogin" layoutX="60.0" layoutY="63.0" onAction="#Logar" prefHeight="25.0" prefWidth="239.0" />
-                  <Button fx:id="btLogin" layoutX="62.0" layoutY="168.0" mnemonicParsing="false" onAction="#Logar" prefHeight="25.0" prefWidth="239.0" text="Login" />
-                  <Text layoutX="60.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Usuario" />
-                  <Text layoutX="60.0" layoutY="306.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Não tem uma conta?" />
-                  <Text layoutX="198.0" layoutY="122.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Esqueceu a Senha?" />
-                  <PasswordField fx:id="SenhaLogin" layoutX="61.0" layoutY="128.0" onAction="#Logar" prefHeight="25.0" prefWidth="237.0" promptText="1234" />
-                  <Text layoutX="62.0" layoutY="122.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Senha" />
-                  <Hyperlink fx:id="cadas" layoutX="172.0" layoutY="290.0" onAction="#outraTela" text="Cadastre-se" />
-                  <Text layoutX="60.0" layoutY="326.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Administrador?" />
-                  <Hyperlink fx:id="LoginAdm" layoutX="148.0" layoutY="310.0" onAction="#outraTela" text="Login ADM" />
-               </children>
-            </AnchorPane>
-        </content>
-      </TitledPane>
+      <Label layoutX="287.0" layoutY="31.0" text="Entrar">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Label>
+      <Separator layoutX="1.0" layoutY="76.0" prefHeight="0.0" prefWidth="655.0" />
+      <TextField fx:id="UsuarioLogin" layoutX="146.0" layoutY="126.0" onAction="#Logar" prefHeight="25.0" prefWidth="364.0" />
+      <Label layoutX="146.0" layoutY="99.0" text="Nome" />
+      <Label layoutX="146.0" layoutY="163.0" text="Senha" />
+      <PasswordField fx:id="SenhaLogin" layoutX="146.0" layoutY="191.0" onAction="#Logar" prefHeight="25.0" prefWidth="358.0" />
+      <Button fx:id="btLogin" layoutX="144.0" layoutY="240.0" mnemonicParsing="false" onAction="#Logar" prefHeight="25.0" prefWidth="364.0" text="Entrar" />
+      <Hyperlink fx:id="cadas" layoutX="332.0" layoutY="339.0" onAction="#outraTela" text="Cadastre-se" />
+      <Text layoutX="221.0" layoutY="355.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Não tem uma conta?" />
+      <Text layoutX="221.0" layoutY="375.0" strokeType="OUTSIDE" strokeWidth="0.0" text="É Administrador? " />
+      <Hyperlink fx:id="LoginAdm" layoutX="332.0" layoutY="368.0" />
+      <Hyperlink fx:id="LoginAdm" layoutX="314.0" layoutY="359.0" onAction="#outraTela" text="Entrar Administrador" />
    </children>
 </AnchorPane>

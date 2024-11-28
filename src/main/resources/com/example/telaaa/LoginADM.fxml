@@ -7,9 +7,9 @@
 
 <AnchorPane prefHeight="479.0" prefWidth="657.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.telaaa.LoginADMController">
    <children>
-      <Label layoutX="168.0" layoutY="42.0" text="ENTRAR COMO ADMINISTRADOR">
+      <Label layoutX="161.0" layoutY="31.0" text="Entrar como administrador ">
          <font>
-            <Font size="22.0" />
+            <Font size="30.0" />
          </font>
       </Label>
       <Separator layoutX="1.0" layoutY="76.0" prefHeight="0.0" prefWidth="655.0" />
