@@ -21,10 +21,10 @@ public class LoginADMController implements Login, trocaTela {
 
     @FXML
     public void initialize() {
-        // Desabilitar o botão de login até que todos os campos estejam preenchidos
+
         btLogin.setDisable(true);
 
-        // Adicionando listeners para os campos de texto, desabilitando o botão quando estiverem vazios
+
         EmailUsuario.textProperty().addListener((obs, oldText, newText) -> updateButtonState());
         senhaUsuario.textProperty().addListener((obs, oldText, newText) -> updateButtonState());
         codigoADM.textProperty().addListener((obs, oldText, newText) -> updateButtonState());
@@ -32,16 +32,16 @@ public class LoginADMController implements Login, trocaTela {
 
     @Override
     public void Logar() {
-        // Obtém os dados inseridos
+
         String NomeUsuario = EmailUsuario.getText();
         String Senha = senhaUsuario.getText();
-        String Codigo = codigoADM.getText().trim(); // Remover espaços extras no código do administrador
+        String Codigo = codigoADM.getText().trim();
         Boolean Encontrado = false;
 
-        // Exibe os dados inseridos pelo usuário
+
         System.out.println("Dados inseridos: NomeUsuario = " + NomeUsuario + ", Senha = " + Senha + ", Codigo = " + Codigo);
 
-        // Obtém a lista de administradores cadastrados
+
         var administradores = HelloApplication.getInstance().getAdiministradores();
 
         if (administradores.isEmpty()) {
@@ -50,21 +50,21 @@ public class LoginADMController implements Login, trocaTela {
             return;
         }
 
-        // Exibe os administradores cadastrados
+
         for (Administrador administrador : administradores) {
             System.out.println("Administrador: " + administrador.getNome() + ", Senha: " + administrador.getSenha() + ", Código: " + administrador.getCodigo());
         }
 
-        // Valida os dados de login
+
         for (Administrador administrador : administradores) {
-            // Comparando corretamente o código, convertendo para String se necessário
+
             if (NomeUsuario.trim().equalsIgnoreCase(administrador.getNome().trim()) &&
                     Senha.equals(administrador.getSenha()) &&
-                    Codigo.equals(String.valueOf(administrador.getCodigo()).trim())) { // Converte o código para String e compara
+                    Codigo.equals(String.valueOf(administrador.getCodigo()).trim())) {
                 Encontrado = true;
                 System.out.println("Administrador encontrado");
 
-                // Redireciona para a tela principal
+
                 try {
                     HelloApplication.getInstance().Tela3();
                 } catch (Exception e) {
@@ -80,7 +80,6 @@ public class LoginADMController implements Login, trocaTela {
         }
     }
 
-    // Atualiza o estado do botão de login
     private void updateButtonState() {
         btLogin.setDisable(
                 EmailUsuario.getText().trim().isEmpty() ||
@@ -89,7 +88,6 @@ public class LoginADMController implements Login, trocaTela {
         );
     }
 
-    // Exibe uma mensagem de erro
     private void showAlert(String title, String message) {
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle(title);
@@ -107,7 +105,7 @@ public class LoginADMController implements Login, trocaTela {
     @FXML
     public void outraTela() {
         try {
-            HelloApplication.getInstance().Tela2(); // Redireciona para a tela de cadastro de administrador
+            HelloApplication.getInstance().Tela2();
         } catch (Exception e) {
             e.printStackTrace();
             System.out.println("Erro ao abrir a tela de cadastro.");

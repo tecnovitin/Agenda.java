@@ -32,7 +32,7 @@ public class cadastroADMcontroller implements Cadastro, trocaTela {
 
     @FXML
     public void initialize() {
-        // Desabilitar o botão de cadastro até que todos os campos estejam preenchidos
+
         btCadastro.setDisable(true);
         nomeUsuario.textProperty().addListener((obs, oldText, newText) -> updateButtonState());
         CPFUsuario.textProperty().addListener((obs, oldText, newText) -> updateButtonState());
@@ -58,7 +58,7 @@ public class cadastroADMcontroller implements Cadastro, trocaTela {
                 String nome = nomeUsuario.getText();
                 String cpf = CPFUsuario.getText();
                 String senha = senhaUsuario.getText();
-                // Alteração para tratar o código do administrador como int
+
                 int cod = Integer.parseInt(codADM.getText()); // Converter para inteiro
                 String email = emailADM.getText();
                 String Csenha = confirmaSenha.getText();
@@ -69,15 +69,14 @@ public class cadastroADMcontroller implements Cadastro, trocaTela {
                     return;
                 }
 
-                // Criando um novo administrador com os dados inseridos
+
                 Administrador adm = new Administrador(nome, email, senha, Csenha, cod, cpf);
                 var usuarioADM = HelloApplication.getInstance().adiministradores;
 
-                // Adiciona o novo administrador à lista
                 usuarioADM.add(adm);
 
                 try {
-                    HelloApplication.getInstance().Tela3(); // Redireciona para a tela principal
+                    HelloApplication.getInstance().Tela3();
                 } catch (Exception e) {
                     throw new RuntimeException(e);
                 }

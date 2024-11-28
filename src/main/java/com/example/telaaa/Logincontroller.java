@@ -44,7 +44,6 @@ public class Logincontroller implements trocaTela, Login {
         });
 
 
-        // Alterna para a tela de cadastro
         cadas.setOnAction(actionEvent -> {
             try {
                 HelloApplication.getInstance().Tela1();
@@ -62,13 +61,12 @@ public class Logincontroller implements trocaTela, Login {
             String senha = SenhaLogin.getText().trim();
             boolean encontrado = false;
 
-            // Valida se os campos não estão vazios
             if (nomeUsuario.isEmpty() || senha.isEmpty()) {
                 showAlert("Erro", "Por favor, preencha todos os campos.");
                 return;
             }
 
-            // Obtém a lista de usuários
+
             var usuarios = HelloApplication.getInstance().getUsuarios();
 
             if (usuarios.isEmpty()) {
@@ -82,7 +80,7 @@ public class Logincontroller implements trocaTela, Login {
                     encontrado = true;
                     try {
                         HelloApplication.getInstance().Tela3(); // Vai para a tela principal
-                    } catch (Exception e) {  // Captura qualquer exceção genérica
+                    } catch (Exception e) {
                         e.printStackTrace();
                         showAlert("Erro", "Falha ao carregar a tela principal.");
                     }
