@@ -1,6 +1,5 @@
 package com.example.telaaa;
 
-
 import interfaces.Cadastro;
 import interfaces.trocaTela;
 import javafx.fxml.FXML;
@@ -12,9 +11,7 @@ import javafx.scene.control.Alert;
 
 import java.io.IOException;
 
-
-public class cadastroADMcontroller implements Cadastro, trocaTela{
-
+public class cadastroADMcontroller implements Cadastro, trocaTela {
 
     @FXML
     private Button btCadastro;
@@ -31,36 +28,38 @@ public class cadastroADMcontroller implements Cadastro, trocaTela{
     @FXML
     private PasswordField senhaUsuario;
     @FXML
-    private PasswordField codADM;
+    private TextField codADM;
+
     @FXML
     public void initialize() {
-
+        // Desabilitar o botão de cadastro até que todos os campos estejam preenchidos
         btCadastro.setDisable(true);
-        nomeUsuario.textProperty().addListener((obs, oldText, newText) -> updateButtonState(nomeUsuario, senhaUsuario, emailADM, confirmaSenha, codADM, CPFUsuario));
-        CPFUsuario.textProperty().addListener((obs, oldText, newText) -> updateButtonState(nomeUsuario, senhaUsuario, emailADM, confirmaSenha, codADM, CPFUsuario));
-        codADM.textProperty().addListener((obs, oldText, newText) -> updateButtonState(nomeUsuario, senhaUsuario, emailADM, confirmaSenha, codADM, CPFUsuario));
-        senhaUsuario.textProperty().addListener((obs, oldText, newText) -> updateButtonState(nomeUsuario, senhaUsuario, emailADM, confirmaSenha, codADM, CPFUsuario));
-        emailADM.textProperty().addListener((obs, oldText, newText) -> updateButtonState(nomeUsuario, senhaUsuario, emailADM, confirmaSenha, codADM, CPFUsuario));
-        confirmaSenha.textProperty().addListener((obs, oldText, newText) -> updateButtonState(nomeUsuario, senhaUsuario, emailADM, confirmaSenha, codADM, CPFUsuario));
-
-
+        nomeUsuario.textProperty().addListener((obs, oldText, newText) -> updateButtonState());
+        CPFUsuario.textProperty().addListener((obs, oldText, newText) -> updateButtonState());
+        codADM.textProperty().addListener((obs, oldText, newText) -> updateButtonState());
+        senhaUsuario.textProperty().addListener((obs, oldText, newText) -> updateButtonState());
+        emailADM.textProperty().addListener((obs, oldText, newText) -> updateButtonState());
+        confirmaSenha.textProperty().addListener((obs, oldText, newText) -> updateButtonState());
     }
-    private void updateButtonState(TextField nomeUsuario, PasswordField senhaUsuario, TextField emailADM, PasswordField confirmaSenha, TextField codADM, TextField CPFUsuario) {
-        btCadastro.setDisable(nomeUsuario.getText().isEmpty() || emailADM.getText().isEmpty() || senhaUsuario.getText().isEmpty() || confirmaSenha.getText().isEmpty() || CPFUsuario.getText().isEmpty() || codADM.getText().isEmpty());
+
+    private void updateButtonState() {
+        btCadastro.setDisable(nomeUsuario.getText().isEmpty() ||
+                emailADM.getText().isEmpty() ||
+                senhaUsuario.getText().isEmpty() ||
+                confirmaSenha.getText().isEmpty() ||
+                CPFUsuario.getText().isEmpty() ||
+                codADM.getText().isEmpty());
     }
+
     @Override
     public void Cadastro() {
-
-
-
-
         btCadastro.setOnAction(actionEvent -> {
             try {
-
                 String nome = nomeUsuario.getText();
                 String cpf = CPFUsuario.getText();
                 String senha = senhaUsuario.getText();
-                float cod = Float.parseFloat(codADM.getText());
+                // Alteração para tratar o código do administrador como int
+                int cod = Integer.parseInt(codADM.getText()); // Converter para inteiro
                 String email = emailADM.getText();
                 String Csenha = confirmaSenha.getText();
 
@@ -69,19 +68,22 @@ public class cadastroADMcontroller implements Cadastro, trocaTela{
                     senhaUsuario.requestFocus();
                     return;
                 }
+
+                // Criando um novo administrador com os dados inseridos
                 Administrador adm = new Administrador(nome, email, senha, Csenha, cod, cpf);
                 var usuarioADM = HelloApplication.getInstance().adiministradores;
 
+                // Adiciona o novo administrador à lista
                 usuarioADM.add(adm);
-                try {
-                    HelloApplication.getInstance().Tela3();
 
+                try {
+                    HelloApplication.getInstance().Tela3(); // Redireciona para a tela principal
                 } catch (Exception e) {
                     throw new RuntimeException(e);
                 }
-                System.out.println("Cliente adicionado com sucesso!");
-            } finally {
-
+                System.out.println("Administrador cadastrado com sucesso!");
+            } catch (NumberFormatException e) {
+                showAlert("Erro de Cadastro", "O código do administrador deve ser um número válido.");
             }
         });
     }
@@ -94,6 +96,7 @@ public class cadastroADMcontroller implements Cadastro, trocaTela{
         alert.showAndWait();
     }
 
+    @FXML
     private void limparCampos() {
         nomeUsuario.clear();
         CPFUsuario.clear();
@@ -104,27 +107,14 @@ public class cadastroADMcontroller implements Cadastro, trocaTela{
         nomeUsuario.requestFocus(); // Foco no primeiro campo
     }
 
-
-
-
-
     @Override
     public void outraTela() {
         btVoltar.setOnAction(actionEvent -> {
             try {
-                HelloApplication.getInstance().Tela0();
+                HelloApplication.getInstance().Tela0(); // Redireciona para a tela inicial
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
         });
     }
 }
-
-
-
-
-
-
-
-
-

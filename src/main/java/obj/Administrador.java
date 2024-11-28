@@ -1,29 +1,69 @@
 package obj;
 
+public class Administrador {
+    private String nome;
+    private String email;
+    private String senha;
+    private String confirmaSenha;
+    private int codigo; // Alterado para int
+    private String cpf;
 
-
-public class Administrador extends Usuario{
-    private float Codigo;
-    private String CPF;
-   public Administrador(String nome, String email, String senha, String confrimaSenha, float Codigo , String CPF) {
-        super(nome, email, senha,confrimaSenha);
-        this.Codigo = Codigo;
-        this.CPF = CPF;
+    // Construtor
+    public Administrador(String nome, String email, String senha, String confirmaSenha, int codigo, String cpf) {
+        this.nome = nome;
+        this.email = email;
+        this.senha = senha;
+        this.confirmaSenha = confirmaSenha;
+        this.codigo = codigo;
+        this.cpf = cpf;
     }
 
-    public void setCodigo(float codigo) {
-        Codigo = codigo;
+    // Getters e setters
+    public String getNome() {
+        return nome;
     }
 
-    public float getCodigo() {
-        return Codigo;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
-    public String getCPF() {
-        return CPF;
+    public String getEmail() {
+        return email;
     }
 
-    public void setCPF(String CPF) {
-        this.CPF = CPF;
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
+
+    public String getConfirmaSenha() {
+        return confirmaSenha;
+    }
+
+    public void setConfirmaSenha(String confirmaSenha) {
+        this.confirmaSenha = confirmaSenha;
+    }
+
+    public int getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
+    }
+
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
     }
 }
