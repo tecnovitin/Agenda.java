@@ -76,7 +76,7 @@ public class cadastroADMcontroller implements Cadastro, trocaTela {
                 usuarioADM.add(adm);
 
                 try {
-                    HelloApplication.getInstance().Tela3();
+                    HelloApplication.getInstance().Tela5();
                 } catch (Exception e) {
                     throw new RuntimeException(e);
                 }
@@ -103,7 +103,7 @@ public class cadastroADMcontroller implements Cadastro, trocaTela {
         senhaUsuario.clear();
         confirmaSenha.clear();
         emailADM.clear();
-        nomeUsuario.requestFocus(); // Foco no primeiro campo
+        nomeUsuario.requestFocus();
     }
 
     @Override

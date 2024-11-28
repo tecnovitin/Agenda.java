@@ -66,7 +66,7 @@ public class LoginADMController implements Login, trocaTela {
 
 
                 try {
-                    HelloApplication.getInstance().Tela3();
+                    HelloApplication.getInstance().Tela5();
                 } catch (Exception e) {
                     e.printStackTrace();
                     System.out.println("Erro ao redirecionar para a tela principal.");
@@ -98,7 +98,7 @@ public class LoginADMController implements Login, trocaTela {
 
     @FXML
     public void handleLogin() {
-        // Chamando o método Logar() para centralizar a lógica de login
+
         Logar();
     }
 
