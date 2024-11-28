@@ -68,20 +68,27 @@ public class HelloApplication extends Application {
 
         }
 
-        public void Tela3() throws Exception {
-        Parent tela3 = FXMLLoader.load(getClass().getResource("Calendario.fxml"));
-        stage0.setScene(new Scene(tela3));
+        public void Tela3() {
+        try {
+            Parent tela3 = FXMLLoader.load(getClass().getResource("Calendario.fxml"));
+            stage0.setScene(new Scene(tela3));
+          } catch (IOException e) {
+            e.printStackTrace();
+         }
+       }
 
-
-        }
-
-        public void Tela4() throws Exception{
+          public void Tela4() {
+        try {
             Parent tela4 = FXMLLoader.load(getClass().getResource("LoginADM.fxml"));
-            stage0.setScene(new Scene(tela4));
-        }
+              stage0.setScene(new Scene(tela4));
+             } catch (IOException e) {
+            e.printStackTrace();
+               }
+      }
 
 
-        public static void main(String[] args) {
+
+    public static void main(String[] args) {
             launch();
         }
 
