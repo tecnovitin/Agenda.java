@@ -1,8 +1,8 @@
 package com.example.telaaa;
 
-import eu.hansolo.toolbox.observables.ObservableList;
 import interfaces.trocaTela;
 import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -29,9 +29,9 @@ public class CalendarioADMcontroller implements trocaTela {
 
     public void initialize() {
 
-        calendarioList = (ObservableList<Calendario>) FXCollections.observableList(new ArrayList<Calendario>());
+        calendarioList = FXCollections.observableList(new ArrayList<Calendario>());
 
-        Lista.setItems((javafx.collections.ObservableList<Calendario>) calendarioList);
+        Lista.setItems( calendarioList);
     }
 
     public void outraTela() {

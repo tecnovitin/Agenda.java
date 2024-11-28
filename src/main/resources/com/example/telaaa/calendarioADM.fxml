@@ -1,21 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<SplitPane dividerPositions="0.15829145728643215" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<SplitPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.telaaa.CalendarioADMcontroller">
   <items>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
          <children>
-            <Label fx:id="nomeadm" layoutX="25.0" layoutY="22.0" prefHeight="17.0" prefWidth="96.0" text="Label" />
-         </children></AnchorPane>
-    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
-         <children>
-            <ListView fx:id="Lista" layoutX="86.0" layoutY="45.0" prefHeight="237.0" prefWidth="381.0" />
-            <Button fx:id="btVoltar" layoutX="508.0" layoutY="282.0" mnemonicParsing="false" text="Voltar" />
+            <ListView fx:id="Lista" layoutX="88.0" layoutY="84.0" prefHeight="237.0" prefWidth="381.0" />
+            <Button fx:id="btVoltar" layoutX="440.0" layoutY="360.0" mnemonicParsing="false" onAction="#outraTela" text="Voltar" />
+            <Label fx:id="nomeadm" layoutX="210.0" layoutY="20.0" prefHeight="57.0" prefWidth="138.0" text="AGENDA">
+               <font>
+                  <Font size="29.0" />
+               </font>
+            </Label>
+            <Button fx:id="" layoutX="513.0" layoutY="360.0" mnemonicParsing="false" text="Comfirmar" textFill="#cd1515" />
+            <Label fx:id="nomeadm1" layoutX="463.0" layoutY="316.0" prefHeight="57.0" prefWidth="138.0" text="Dejesa excluir?">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
          </children></AnchorPane>
   </items>
 </SplitPane>
